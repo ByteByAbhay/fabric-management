@@ -143,8 +143,8 @@ const PartyFormUpdated = ({ initialVendorData = null, partyId = null, isEditMode
           setInitialLoading(true);
           console.log(`Fetching party data for ID: ${effectiveId}`);
           
-          // Temporarily using /api/vendors endpoint until backend deployment is updated
-          const response = await axios.get(`/api/vendors/${effectiveId}`);
+          // Temporarily using /api/parties endpoint until backend deployment is updated
+          const response = await axios.get(`/api/parties/${effectiveId}`);
           console.log('Vendor data response:', response.data);
           
           if (response.data.success) {
@@ -514,13 +514,13 @@ const PartyFormUpdated = ({ initialVendorData = null, partyId = null, isEditMode
     // Use the new editVendor endpoint for updates, regular endpoint for creates
     let apiCall;
     if (effectiveIsEditMode) {
-      // Temporarily using /api/vendors endpoint until backend deployment is updated
-      apiCall = axios.post(`/api/vendors/edit/${effectiveId}`, updatedFormData);
-      console.log(`Using enhanced edit endpoint: /api/vendors/edit/${effectiveId}`);
+      // Temporarily using /api/parties endpoint until backend deployment is updated
+      apiCall = axios.post(`/api/parties/edit/${effectiveId}`, updatedFormData);
+      console.log(`Using enhanced edit endpoint: /api/parties/edit/${effectiveId}`);
     } else {
-      // Temporarily using /api/vendors endpoint until backend deployment is updated
-      apiCall = axios.post('/api/vendors', updatedFormData);
-      console.log('Using create endpoint: /api/vendors');
+      // Temporarily using /api/parties endpoint until backend deployment is updated
+      apiCall = axios.post('/api/parties', updatedFormData);
+      console.log('Using create endpoint: /api/parties');
     }
     
     apiCall

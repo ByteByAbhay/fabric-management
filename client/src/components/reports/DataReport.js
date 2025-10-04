@@ -36,7 +36,7 @@ const DataReport = () => {
       
       try {
         // Fetch vendor data
-        const vendorResponse = await axios.get('/api/vendors');
+        const vendorResponse = await axios.get('/api/parties');
         setVendorData(vendorResponse.data.data || []);
         
         // Fetch stock data

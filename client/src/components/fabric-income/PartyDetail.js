@@ -21,8 +21,8 @@ const PartyDetail = () => {
   const fetchParty = async () => {
     try {
       setLoading(true);
-      // Temporarily using /api/vendors endpoint until backend deployment is updated
-      const response = await axios.get(`/api/vendors/${id}`);
+      // Temporarily using /api/parties endpoint until backend deployment is updated
+      const response = await axios.get(`/api/parties/${id}`);
       if (response.data.success) {
         setParty(response.data.data);
       } else {

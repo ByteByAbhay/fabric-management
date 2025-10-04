@@ -18,8 +18,8 @@ const PartyEdit = () => {
         console.log(`PartyEdit: Fetching party data for ID: ${id}`);
         setLoading(true);
         
-        // Temporarily using /api/vendors endpoint until backend deployment is updated
-        const response = await axios.get(`/api/vendors/${id}`);
+        // Temporarily using /api/parties endpoint until backend deployment is updated
+        const response = await axios.get(`/api/parties/${id}`);
         console.log('PartyEdit: Party data response:', response.data);
         
         if (response.data.success) {

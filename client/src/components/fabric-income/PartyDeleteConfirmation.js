@@ -21,10 +21,10 @@ const PartyDeleteConfirmation = ({
       setError(null);
       
       // Attempt to delete the party
-      // Temporarily using /api/vendors endpoint until backend deployment is updated
+      // Temporarily using /api/parties endpoint until backend deployment is updated
       const url = forceDelete 
-        ? `/api/vendors/${party._id}?forceDelete=true` 
-        : `/api/vendors/${party._id}`;
+        ? `/api/parties/${party._id}?forceDelete=true` 
+        : `/api/parties/${party._id}`;
         
       const response = await axios.delete(url);
       

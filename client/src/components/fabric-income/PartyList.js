@@ -34,7 +34,7 @@ const PartyList = () => {
       params.append('limit', 10);
       if (searchTerm) params.append('search', searchTerm);
       
-      const response = await axios.get(`/api/vendors?${params.toString()}`);
+      const response = await axios.get(`/api/parties?${params.toString()}`);
       
       if (response.data.success) {
         setParties(response.data.data);
@@ -105,8 +105,8 @@ const PartyList = () => {
     if (!partyToDelete) return;
     
     try {
-      // Temporarily using /api/vendors endpoint until backend deployment is updated
-      const response = await axios.delete(`/api/vendors/${partyToDelete._id}`);
+      // Temporarily using /api/parties endpoint until backend deployment is updated
+      const response = await axios.delete(`/api/parties/${partyToDelete._id}`);
       if (response.data.success) {
         // Remove party from state
         setParties(parties.filter(v => v._id !== partyToDelete._id));
