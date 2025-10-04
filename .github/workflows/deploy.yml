@@ -1,0 +1,32 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy on EC2 via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script_stop: true
+          envs: REPO_URL,REPO_SSH_URL,DEPLOY_KEY,DEPLOY_REF,MONGO_URI,ALLOWED_ORIGINS
+          envs_format: export
+          script: |
+            export REPO_URL="${{ github.server_url }}/${{ github.repository }}.git"
+            export REPO_SSH_URL="git@github.com:${{ github.repository }}.git"
+            export DEPLOY_REF="${{ github.ref_name }}"
+            export MONGO_URI="${{ secrets.MONGO_URI }}"
+            export ALLOWED_ORIGINS="${{ secrets.ALLOWED_ORIGINS }}"
+            export DEPLOY_KEY="${{ secrets.DEPLOY_KEY }}"
+            bash -lc 'curl -fsSL https://raw.githubusercontent.com/${{ github.repository }}/main/scripts/remote-deploy.sh | REPO_URL="$REPO_URL" REPO_SSH_URL="$REPO_SSH_URL" DEPLOY_KEY="$DEPLOY_KEY" DEPLOY_REF="$DEPLOY_REF" MONGO_URI="$MONGO_URI" ALLOWED_ORIGINS="$ALLOWED_ORIGINS" bash'
+
+

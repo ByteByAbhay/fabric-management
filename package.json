@@ -1,0 +1,27 @@
+{
+  "name": "fabric-management",
+  "version": "1.0.0",
+  "description": "Fabric Stock Management System",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "install-server": "cd server && npm install",
+    "install-client": "cd client && npm install",
+    "install-all": "npm install && npm run install-server && npm run install-client",
+    "build-client": "cd client && npm run build",
+    "vercel-build": "npm run install-client && npm run build-client"
+  },
+  "dependencies": {
+    "@tailwindcss/forms": "^0.5.10",
+    "concurrently": "^8.2.2"
+  },
+  "devDependencies": {
+    "source-map-explorer": "^2.5.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

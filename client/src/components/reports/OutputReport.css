@@ -1,0 +1,76 @@
+/* OutputReport.css */
+
+/* General styling */
+.filter-card {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.filter-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Badge styling */
+.worker-badge, .fabric-badge {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 6px 10px;
+}
+
+.worker-badge:hover, .fabric-badge:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.difference-badge, .percentage-badge {
+  font-size: 0.9rem;
+  padding: 6px 8px;
+}
+
+/* Table styling */
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 123, 255, 0.05) !important;
+}
+
+/* Button styling */
+.details-button {
+  transition: all 0.2s ease;
+}
+
+.details-button:hover {
+  transform: scale(1.05);
+}
+
+/* Color swatch */
+.color-swatch {
+  border: 1px solid #ddd;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Date picker styling */
+.date-picker {
+  border-left: 0;
+}
+
+/* Search box styling */
+.search-box {
+  min-width: 300px;
+}
+
+/* Modal styling */
+.modal-content {
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .search-box {
+    min-width: 200px;
+  }
+  
+  .worker-badge, .fabric-badge {
+    padding: 4px 8px;
+    font-size: 0.8rem;
+  }
+}
