@@ -7,6 +7,7 @@ const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 
 // Import routes
+const vendorRoutes = require('./routes/vendorRoutes');
 const partyRoutes = require('./routes/partyRoutes');
 const stockRoutes = require('./routes/stockRoutes');
 const cuttingRoutes = require('./routes/cuttingRoutes');
@@ -76,6 +77,7 @@ const registerRoute = (path, router) => {
 };
 
 // Routes
+registerRoute('/api/vendor', vendorRoutes);
 registerRoute('/api/parties', partyRoutes);
 registerRoute('/api/stock', stockRoutes);
 registerRoute('/api/cutting', cuttingRoutes);
