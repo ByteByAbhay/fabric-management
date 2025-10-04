@@ -18,7 +18,7 @@ const StockDashboard = () => {
         
         console.log('Fetching stock data...');
         // Only get active (non-processed) stock by default
-        const response = await api.get('/stock/report');
+        const response = await api.get('/api/stock/report');
         
         if (!response.data || !response.data.stockItems || !Array.isArray(response.data.stockItems)) {
           console.error('Invalid stock data format:', response.data);
